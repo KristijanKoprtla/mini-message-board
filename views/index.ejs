@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="upper-container">
+        <h1><%= title %></h1>
+        <h3>Welcome to <%= title %></h3>
+
+        <a href="/new"><button class="btn">Add a new message</button></a>
+      </div>
+
+      <div class="lower-container">
+        <ul>
+          <% messages.forEach(function(message) { %>
+          <li>
+            <div class="user-container">
+              <p class="user"><%= message.user %></p>
+              <p class="userDate">
+                <%= message.added.toLocaleString('en-US', { weekday: 'long',
+                year: 'numeric', month: 'short', day: 'numeric', hour:
+                'numeric', minute: 'numeric', second: 'numeric', hour12: false
+                }) %>
+              </p>
+            </div>
+
+            <p class="text"><%= message.text %></p>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
